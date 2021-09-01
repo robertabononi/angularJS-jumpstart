@@ -4,19 +4,21 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AngularJS Hello World</title>
+        <title>AngularJS - Hello World</title>
     </head>
     <body ng-init="name='Roberta'">
-        <div ng-hide="isHidden">
-            <label>Name:</label>
-            <input type="text" ng-model="name" placeholder="Enter your name here">
-            <br>
-            <!--<h2>Hello {{ name }}!</h2>-->
-            <span ng-bind="name"></span>
+        <div ng-cloak>
+            <div ng-hide="isHidden">
+                <label>Name:</label>
+                <input type="text" ng-model="name" placeholder="Enter your name here">
+                <br>
+                <h2>Hello {{ name }}!</h2>
+                <!--<span ng-bind="name"></span>-->
+            </div>
         </div>
-        <hr>
 
-        Hide: <input type="checkbox" ng-model="isHidden">
+        <label> Hide: </label>
+        <input type="checkbox" ng-model="isHidden">
 
         <button ng-click="name='Carla'">Change name</button>
 

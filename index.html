@@ -80,7 +80,7 @@
                     <th>Order Total</th>
                     <th>Joined</th>
                 </tr>
-                <tr ng-repeat="cust in costumers | limitTo:2">
+                <tr ng-repeat="cust in costumers | orderBy:'name'">
                     <td>{{ cust.name | uppercase }}</td>
                     <td>{{ cust.city | lowercase }}</td>
                     <td>{{ cust.orderTotal | currency: "R$" }}</td>

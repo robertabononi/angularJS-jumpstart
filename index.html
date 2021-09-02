@@ -4,17 +4,20 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style.css">
+        
         <title>AngularJS - Hello World</title>
     </head>
-    <body ng-init="data={name:'Roberta', loggedIn: true, isVisible: true}">
+    <body ng-init="data={name:'Roberta', loggedIn: false, isVisible: true, status: 'red'}">
         <div ng-cloak>
 
             <div ng-switch on="data.loggedIn">
-                <div ng-switch-when="true"> 
+                <div ng-switch-when="true" ng-style="{'color': 'red'}"> 
                     <h3>Welcome, {{ data.name }}!</h3> 
                 </div>
                 
-                <div ng-switch-when="false">
+                <div ng-switch-default ng-class="data.status">
                     <h3>Login</h3>
                 </div>
             </div>

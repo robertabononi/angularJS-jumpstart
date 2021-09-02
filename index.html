@@ -42,12 +42,12 @@
 
         <hr>
 
-        <div ng-init="names=['Dave', 'Jess', 'Harry', 'Danny']">
+        <div ng-init="people=[{name: 'Dave', city: 'São Paulo'}, {name: 'Jess', city: 'Santos'}, {name: 'Harry', city: 'Santo André'}, {name: 'Danny', city: 'New York'}]">
 
             <h3>Iterating through data with ng-repeat</h3>
 
             <ul>
-                <li ng-repeat="name in names">{{ name }}</li>
+                <li ng-repeat="person in people">{{ person.name }}, {{ person.city }}.</li>
             </ul>
             
         </div>

@@ -6,21 +6,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>AngularJS - Hello World</title>
     </head>
-    <body ng-init="name='Roberta'">
+    <body ng-init="data={name:'Roberta', loggedIn: true}">
         <div ng-cloak>
+
+            <div ng-switch on="data.loggedIn">
+                <div ng-switch-when="true"> 
+                    <h3>Welcome, {{ data.name }}!</h3> 
+                </div>
+                
+                <div ng-switch-when="false">
+                    <h3>Login</h3>
+                </div>
+            </div>
+
             <div ng-hide="isHidden">
                 <label>Name:</label>
-                <input type="text" ng-model="name" placeholder="Enter your name here">
+                <input type="text" ng-model="data.name" placeholder="Enter your name here">
                 <br>
-                <h2>Hello {{ name }}!</h2>
+                <!--<h2>Hello {{ name }}!</h2>-->
                 <!--<span ng-bind="name"></span>-->
             </div>
+        
+            <label> Hide: </label>
+            <input type="checkbox" ng-model="isHidden">
+
+            <button ng-click="data.name='Carla'">Change name</button>
+
         </div>
-
-        <label> Hide: </label>
-        <input type="checkbox" ng-model="isHidden">
-
-        <button ng-click="name='Carla'">Change name</button>
 
         <script src="angular.js"></script>
     </body>

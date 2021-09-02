@@ -63,6 +63,33 @@
             
         </div>
         
+        <hr>
+
+        <div ng-init="costumers=[{joined: '2000-12-02', name: 'John', city: 'Chandler', orderTotal: 9.9956}, {joined: '2013-07-16', name: 'Roberta', city: 'Santo André', orderTotal: 133.45}, {joined: '2020-10-20', name: 'Carla', city: 'São Paulo', orderTotal: 900.00}, {joined: '2005-01-15', name: 'Rodrigo', city: 'Praia Grande', orderTotal: 566.50}]">
+            <h2>Costumers</h2>
+            
+            <label>Filter:</label>
+            <input type="text">
+
+            <br><br>
+
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Order Total</th>
+                    <th>Joined</th>
+                </tr>
+                <tr ng-repeat="cust in costumers">
+                    <td>{{ cust.name | uppercase }}</td>
+                    <td>{{ cust.city | lowercase }}</td>
+                    <td>{{ cust.orderTotal | currency: "R$" }}</td>
+                    <td>{{ cust.joined | date: "dd/MM/yyyy" }}</td>
+                </tr>
+            </table>
+            
+        </div>
+
         <script src="angular.js"></script>
     </body>
 </html>

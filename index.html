@@ -6,38 +6,52 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="style.css">
-        
+
         <title>AngularJS - Hello World</title>
     </head>
-    <body ng-init="data={name:'Roberta', loggedIn: false, isVisible: true, status: 'red'}">
-        <div ng-cloak>
+    <body>
+        <div ng-init="data={name:'Roberta', loggedIn: false, isVisible: true, status: 'red'}">
+            <div ng-cloak>
 
-            <div ng-switch on="data.loggedIn">
-                <div ng-switch-when="true" ng-style="{'color': 'red'}"> 
-                    <h3>Welcome, {{ data.name }}!</h3> 
+                <div ng-switch on="data.loggedIn">
+                    <div ng-switch-when="true" ng-style="{'color': 'red'}"> 
+                        <h3>Welcome, {{ data.name }}!</h3> 
+                    </div>
+                    
+                    <div ng-switch-default ng-class="data.status">
+                        <h3>Login</h3>
+                    </div>
                 </div>
-                
-                <div ng-switch-default ng-class="data.status">
-                    <h3>Login</h3>
+
+                <!--<div ng-hide="isHidden">-->
+                <div ng-show="data.isVisible">
+                    <label>Name:</label>
+                    <input type="text" ng-model="data.name" placeholder="Enter your name here">
+                    <br>
+                    <!--<h2>Hello {{ name }}!</h2>-->
+                    <!--<span ng-bind="name"></span>-->
                 </div>
+            
+                <!--<label> Hide: </label>
+                <input type="checkbox" ng-model="isHidden">-->
+
+                <button ng-click="data.name='Carla'">Change name</button>
+
             </div>
-
-            <!--<div ng-hide="isHidden">-->
-            <div ng-show="data.isVisible">
-                <label>Name:</label>
-                <input type="text" ng-model="data.name" placeholder="Enter your name here">
-                <br>
-                <!--<h2>Hello {{ name }}!</h2>-->
-                <!--<span ng-bind="name"></span>-->
-            </div>
-        
-            <!--<label> Hide: </label>
-            <input type="checkbox" ng-model="isHidden">-->
-
-            <button ng-click="data.name='Carla'">Change name</button>
-
         </div>
 
+        <hr>
+
+        <div ng-init="names=['Dave', 'Jess', 'Harry', 'Danny']">
+
+            <h3>Iterating through data with ng-repeat</h3>
+
+            <ul>
+                <li ng-repeat="name in names">{{ name }}</li>
+            </ul>
+            
+        </div>
+        
         <script src="angular.js"></script>
     </body>
 </html>

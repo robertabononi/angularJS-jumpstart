@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>AngularJS - Hello World</title>
     </head>
-    <body ng-init="data={name:'Roberta', loggedIn: true}">
+    <body ng-init="data={name:'Roberta', loggedIn: true, isVisible: true}">
         <div ng-cloak>
 
             <div ng-switch on="data.loggedIn">
@@ -19,7 +19,8 @@
                 </div>
             </div>
 
-            <div ng-hide="isHidden">
+            <!--<div ng-hide="isHidden">-->
+            <div ng-show="data.isVisible">
                 <label>Name:</label>
                 <input type="text" ng-model="data.name" placeholder="Enter your name here">
                 <br>
@@ -27,8 +28,8 @@
                 <!--<span ng-bind="name"></span>-->
             </div>
         
-            <label> Hide: </label>
-            <input type="checkbox" ng-model="isHidden">
+            <!--<label> Hide: </label>
+            <input type="checkbox" ng-model="isHidden">-->
 
             <button ng-click="data.name='Carla'">Change name</button>
 

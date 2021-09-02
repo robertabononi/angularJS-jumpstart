@@ -49,6 +49,17 @@
             <ul>
                 <li ng-repeat="person in people">{{ person.name }}, {{ person.city }}.</li>
             </ul>
+
+            <table>
+                <tr>
+                    <td><strong>Name</strong></td>
+                    <td><strong>City</strong></td>
+                </tr>
+                <tr ng-repeat="person in people">
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.city }}</td>
+                </tr>
+            </table>
             
         </div>
         

@@ -1,1 +1,1 @@
-let CostumersModule = angular.module('CostumersModule', []);
+let CostumersModule = angular.module('CostumersModule', ['ngRoute']);

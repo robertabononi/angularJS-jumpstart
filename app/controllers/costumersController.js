@@ -9,7 +9,7 @@ CostumersModule.controller('CostumersController', ['$scope', function($scope) {
         {joined: '2005-01-15', name: 'Rodrigo', city: 'Praia Grande', orderTotal: 566.50}
     ];
     $scope.doSort = function(propName) {
-        $scope.sortBy = 'propName';
-        $scope.reverse = !reverse;
+        $scope.sortBy = propName;
+        $scope.reverse = !$scope.reverse;
     }
 }]);

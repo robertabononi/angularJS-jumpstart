@@ -9,94 +9,15 @@
 
         <title>AngularJS - Hello World</title>
     </head>
+
     <body>
-        <div ng-init="data={name:'Roberta', loggedIn: false, isVisible: true, status: 'red'}">
-            <div ng-cloak>
 
-                <div ng-switch on="data.loggedIn">
-                    <div ng-switch-when="true" ng-style="{'color': 'red'}"> 
-                        <h3>Welcome, {{ data.name }}!</h3> 
-                    </div>
-                    
-                    <div ng-switch-default ng-class="data.status">
-                        <h3>Login</h3>
-                    </div>
-                </div>
-
-                <!--<div ng-hide="isHidden">-->
-                <div ng-show="data.isVisible">
-                    <label>Name:</label>
-                    <input type="text" ng-model="data.name" placeholder="Enter your name here">
-                    <br>
-                    <!--<h2>Hello {{ name }}!</h2>-->
-                    <!--<span ng-bind="name"></span>-->
-                </div>
-            
-                <!--<label> Hide: </label>
-                <input type="checkbox" ng-model="isHidden">-->
-
-                <button ng-click="data.name='Carla'">Change name</button>
-
-            </div>
-        </div>
-
-        <hr>
-
-        <div ng-init="people=[{name: 'Dave', city: 'São Paulo'}, {name: 'Jess', city: 'Santos'}, {name: 'Harry', city: 'Santo André'}, {name: 'Danny', city: 'New York'}]">
-
-            <h3>Iterating through data with ng-repeat</h3>
-
-            <ul>
-                <li ng-repeat="person in people">{{ person.name }}, {{ person.city }}.</li>
-            </ul>
-
-            <table>
-                <tr>
-                    <td><strong>Name</strong></td>
-                    <td><strong>City</strong></td>
-                </tr>
-                <tr ng-repeat="person in people">
-                    <td>{{ person.name }}</td>
-                    <td>{{ person.city }}</td>
-                </tr>
-            </table>
-            
-        </div>
-        
-        <hr>
-
-        <div ng-controller="CostumersController">
-            <h2>Costumers</h2>
-            
-            <label>Filter:</label>
-            <input type="text" ng-model="costumerFilter.name">
-
-            <br><br>
-
-            <table>
-                <tr class="table-headers">
-                    <th ng-click="doSort('name')">Name</th>
-                    <th ng-click="doSort('city')">City</th>
-                    <th ng-click="doSort('orderTotal')">Order Total</th>
-                    <th ng-click="doSort('joined')">Joined</th>
-                </tr>
-                <tr ng-repeat="cust in costumers | filter: costumerFilter | orderBy:sortBy:reverse">
-                    <td>{{ cust.name | uppercase }}</td>
-                    <td>{{ cust.city | lowercase }}</td>
-                    <td>{{ cust.orderTotal | currency: "R$" }}</td>
-                    <td>{{ cust.joined | date: "dd/MM/yyyy" }}</td>
-                </tr>
-            </table>
-
-            <br>
-
-            <span>Total costumers: {{ costumers.length }}</span>
-            
+        <div ng-view>       
         </div>
 
         <script src="scripts/angular.js"></script>
-        <script src="app/app.js"></script>
         <script src="scripts/angular-route.js"></script>
+        <script src="app/app.js"></script>
         <script src="app/controllers/costumersController.js"></script>
     </body>
 </html>
